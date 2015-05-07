@@ -8,7 +8,7 @@ Primer overrides the internal `Date` object with a custom one that behaves nearl
 
 ## Enabling Primer
 
-Primer is enabled by default. To disable it, call `Date.disablePrimer()`. To re-enable, call `window.enablePrimer()`. When enabled by default, Primer should have no effect on any of your code (unless there's bugs). The only time your should see any effect from Primer is when you call the `setTime` function.
+Primer is disabled by default. To enable it, call `Date.enablePrimer()`. To disable it, call `Date.disablePrimer()`. Enabling Primer will override the internal `Date` object, while disabling it will replace it with the original `Date` object. When enabled, Primer should have no effect on any of your code (unless there are bugs). The only time you should see any effect from Primer is when you call the `setTime` function.
 
 ## Changing The Time
 
