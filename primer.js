@@ -108,13 +108,11 @@
 
 	// Switch back to the original Date object, just in case
 	PrimerDate.disablePrimer = function() {
-		window.Date = OriginalDate;
+		Date = OriginalDate;
 	};
 
 	// Enable the Primer Date object. Called on load by default
-	window.enablePrimer = function() {
-		window.Date = PrimerDate;
+	Date.enablePrimer = function() {
+		Date = PrimerDate;
 	};
-
-	enablePrimer();
 })();

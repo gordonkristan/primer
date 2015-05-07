@@ -1,9 +1,7 @@
 (function() {
 	'use strict';
 
-	Date.disablePrimer();
 	var OriginalDate = Date;
-	enablePrimer();
 
 	var within = function(a, b, tolerance) {
 		return (Math.abs(a - b) <= tolerance);
@@ -11,21 +9,22 @@
 
 	module('Primer.js Tests', {
 		setup: function() {
-			Date.resetTime();
+			Date.enablePrimer();
+				Date.resetTime();
 		},
 
 		teardown: function() {
-			Date.resetTime();
+			Date.disablePrimer();
 		}
 	});
 
 	test('The library has no effect by default', function() {
-		expect(1);
+		expect(2);
 
-		var a = new Date().getTime();
-		var b = new OriginalDate().getTime();
-
-		ok(within(a, b, 5));
+		Date.disablePrimer();
+		strictEqual(Date, OriginalDate);
+		Date.enablePrimer();
+		ok(Date !== OriginalDate);
 	});
 
 	test('`resetTime` works properly', function() {
