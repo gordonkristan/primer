@@ -1,6 +1,7 @@
 {
 	"name": "primer",
 	"version": "0.1.0",
+	"main": "primer.js",
 	"devDependencies": {
 		"grunt": "0.4.2",
 		"grunt-contrib-qunit": "0.4.0"
