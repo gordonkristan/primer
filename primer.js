@@ -106,13 +106,26 @@
 		difference = 0;
 	};
 
-	// Switch back to the original Date object, just in case
-	PrimerDate.disablePrimer = function() {
-		Date = OriginalDate;
-	};
-
-	// Enable the Primer Date object. Called on load by default
-	Date.enablePrimer = function() {
+	function enablePrimer() {
 		Date = PrimerDate;
-	};
+	}
+
+	function disablePrimer() {
+		Date = OriginalDate;
+	}
+
+	if (typeof define === 'function' && define.amd) {
+		define('primer', [], function() {
+			return {
+				enable: enablePrimer,
+				disable: disablePrimer
+			};
+		});
+	} else if (typeof exports === 'object') {
+		module.exports.enable = enablePrimer;
+		module.exports.disable = disablePrimer;
+	} else {
+		Date.enablePrimer = enablePrimer;
+		PrimerDate.disablePrimer = disablePrimer;
+	}
 })();
